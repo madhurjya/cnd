@@ -1,0 +1,49 @@
+{
+  "name": "cnd",
+  "version": "1.0.0",
+  "description": "Cloud and Docker",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "./node_modules/.bin/webpack --config ./build/webpack.api.base.babel.js",
+    "clean": "./node_modules/.bin/rimraf ./dist",
+    "lint": "./node_modules/.bin/eslint --color --format stylish src",
+    "prebuild": "npm run clean",
+    "start": "./node_modules/.bin/babel-node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/subhajitdas/cnd.git"
+  },
+  "keywords": [
+    "cloud",
+    "docker"
+  ],
+  "author": "Subhaijt Das<subhajit@live.com>",
+  "license": "Apache License v2.0",
+  "bugs": {
+    "url": "https://github.com/subhajitdas/cnd/issues"
+  },
+  "homepage": "https://github.com/subhajitdas/cnd#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.11.0",
+    "eslint-plugin-import": "^2.8.0",
+    "file-loader": "^1.1.5",
+    "json-loader": "^0.5.7",
+    "rimraf": "^2.6.2",
+    "webpack": "^3.8.1",
+    "webpack-node-externals": "^1.6.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dependency-injection": "git+https://github.com/subhajitdas/dependency-injection.git",
+    "express": "^4.16.2",
+    "mongoose": "^4.13.3",
+    "morgan": "^1.9.0",
+    "winston": "^2.4.0",
+    "winston-daily-rotate-file": "^1.7.2"
+  }
+}
