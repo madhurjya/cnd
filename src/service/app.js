@@ -1,16 +1,21 @@
 import express from 'express';
 import middlewareLogging from './middleware/middleware-logger';
-import middlewareParsing from './middleware/middleware-request-parser';
+import middlewarePassport from './middleware/middleware-passport';
+import middlewareRequestParser from './middleware/middleware-request-parser';
+
+import SecurityConfig from '../../config/development/security.json';
 
 const PORT = process.env.PORT || 3000;
 const app = express();
 
 export default function (
     logger,
+    userRepository,
     serviceDescriptionRouter
 ) {
     middlewareLogging(app, logger);
-    middlewareParsing(app);
+    middlewareRequestParser(app);
+    middlewarePassport(app, userRepository, SecurityConfig);
 
     app.use('/api/services', serviceDescriptionRouter.Router);
 

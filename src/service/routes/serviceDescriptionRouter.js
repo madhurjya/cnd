@@ -1,5 +1,6 @@
 import BaseRouter from './baseRouter';
 import entityByIdMiddleware from '../middleware/middleware-entityById';
+import { authenticated } from '../middleware/middleware-security';
 
 class ServiceDescriptionRouter extends BaseRouter {
     constructor(
@@ -7,6 +8,10 @@ class ServiceDescriptionRouter extends BaseRouter {
         serviceDescriptionController
     ) {
         super(serviceDescriptionController);
+        this.Router.use(authenticated());
+
+        this.Router.route('/search')
+            .post(async (req, res) => serviceDescriptionController.search(req, res));
 
         this.Router.use('/:id', entityByIdMiddleware(serviceDescriptionRepository));
 

@@ -5,7 +5,7 @@ export default function (dbConfig) {
     mongoose.set('debug', true);
     return new Promise((resolve, reject) => {
         const connection = mongoose.createConnection();
-        connection.open(dbConfig.connection,
+        connection.openUri(dbConfig.connection,
             (err) => {
                 if (err) {
                     reject(err);

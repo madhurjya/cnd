@@ -60,6 +60,28 @@ class RepositoryOfTController extends ApiController {
             res.status(HttpStatus.InternalServerError).json(err);
         }
     }
+
+    async search(req, res) {
+        let query = this.Repository._get(req.body);
+        if (req.query && req.query.orderBy) {
+            query = query.sort(
+                (
+                    Array.isArray(req.query.orderBy) ?
+                        req.query.orderBy :
+                        [req.query.orderBy]
+                ).reduce(
+                    (acc, prop) => (prop[0] === '-') ?
+                        Object.assign({}, acc, {
+                            [prop.slice(1)]: -1
+                        }) :
+                        Object.assign({}, acc, {
+                            [prop]: 1
+                        })
+                    , {})
+            );
+        }
+        res.json(await query);
+    }
 }
 
 export default RepositoryOfTController;

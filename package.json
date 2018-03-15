@@ -29,21 +29,23 @@
     "babel-cli": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
-    "eslint": "^4.11.0",
+    "eslint": "^4.17.0",
     "eslint-plugin-import": "^2.8.0",
-    "file-loader": "^1.1.5",
+    "file-loader": "^1.1.6",
     "json-loader": "^0.5.7",
     "rimraf": "^2.6.2",
-    "webpack": "^3.8.1",
+    "webpack": "^3.10.0",
     "webpack-node-externals": "^1.6.0"
   },
   "dependencies": {
-    "body-parser": "^1.18.2",
-    "dependency-injection": "git+https://github.com/subhajitdas/dependency-injection.git",
-    "express": "^4.16.2",
-    "mongoose": "^4.13.3",
-    "morgan": "^1.9.0",
-    "winston": "^2.4.0",
-    "winston-daily-rotate-file": "^1.7.2"
+    "body-parser": "1.18.2",
+    "dependency-injection": "github:subhajitdas/dependency-injection",
+    "express": "4.16.2",
+    "mongoose": "5.0.9",
+    "morgan": "1.9.0",
+    "passport": "0.4.0",
+    "passport-jwt": "3.0.1",
+    "winston": "2.4.0",
+    "winston-daily-rotate-file": "1.7.2"
   }
 }

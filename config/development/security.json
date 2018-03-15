@@ -1,0 +1,7 @@
+{
+    "jwt": {
+        "secret": "cnd-secret",
+        "issuer": "one-identity",
+        "audience": "cnd-core"
+    }
+}

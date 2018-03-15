@@ -13,6 +13,10 @@ class ModelOfTRepository extends RepositoryOfT {
         ];
     }
 
+    _get(query) {
+        return this.Model.find(query);
+    }
+
     async get(query) {
         return this.Model.find(query);
     }
