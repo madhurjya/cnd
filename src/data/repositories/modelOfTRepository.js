@@ -26,10 +26,8 @@ class ModelOfTRepository extends RepositoryOfT {
     }
 
     async create(entity) {
-        if (!(entity instanceof this.Model)) {
-            throw new TypeError('Invalid entity');
-        }
-        return entity.save();
+        const newEntity = new (this.Model)(entity);
+        return newEntity.save();
     }
 
     async patch(entity, changes) {

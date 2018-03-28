@@ -1,2 +1,3 @@
-export const ServiceDescription = 'ServiceDescription';
-export const User = 'User';
+export const ServiceDefinition = 'ServiceDefinitions';
+export const ServiceInstance = 'ServiceInstances';
+export const User = 'Users';

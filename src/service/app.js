@@ -11,13 +11,17 @@ const app = express();
 export default function (
     logger,
     userRepository,
-    serviceDescriptionRouter
+    serviceDefinitionRouter,
+    serviceRouter
 ) {
     middlewareLogging(app, logger);
     middlewareRequestParser(app);
     middlewarePassport(app, userRepository, SecurityConfig);
 
-    app.use('/api/services', serviceDescriptionRouter.Router);
+    const apiRouter = express.Router();
+    apiRouter.use('/serviceDefinitions', serviceDefinitionRouter.Router);
+    apiRouter.use('/services', serviceRouter.Router);
+    app.use('/api', apiRouter);
 
     app.listen(PORT, () => {
         logger.info(`Server started on port ${PORT}`);
