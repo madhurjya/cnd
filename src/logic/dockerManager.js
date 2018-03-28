@@ -11,9 +11,27 @@ class DockerManager {
         return this._client;
     }
 
-    async createService(name, serviceDefinition) {
-        const { data } = await this.Client.post('/services/create', serviceDefinition);
+    async inspectService(id) {
+        const { data } = await this.Client.get(`/services/${id}`);
         return data;
+    }
+
+    async createService(name, serviceDefinition) {
+        try {
+            const { data } = await this.Client.post(
+                '/services/create',
+                Object.assign({}, serviceDefinition, { name })
+            );
+            return await this.inspectService(data.ID);
+        } catch (error) {
+            if (error.response) {
+                throw new Error(error.response.data.message);
+            } else if (error.request) {
+                throw error;
+            } else {
+                throw error;
+            }
+        }
     }
 }
 

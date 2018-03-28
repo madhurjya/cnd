@@ -32,17 +32,25 @@ class ServiceManager {
                 user: user._id,
                 state: ServiceStates.NEW
             });
-            const { ID: serviceId } = await this.Docker.createService(
-                `${serviceDefinition._id}_${user._id}_${Date.now()}`,
+            const serviceDetails = await this.Docker.createService(
+                serviceInstance._id.toString(),
                 serviceDefinition.definition
             );
-            serviceInstance.serviceId = serviceId;
+            serviceInstance.details = serviceDetails;
             serviceInstance.state = ServiceStates.CREATED;
             await serviceInstance.save();
             return serviceInstance.toObject();
         } else {
             throw new Error('Service definition not found');
         }
+    }
+
+    async getServiceById(serviceInstanceId, user) {
+        const [serviceInstance] = await this.ServiceInstanceRepository.get({
+            _id: serviceInstanceId,
+            user: user._id
+        });
+        return serviceInstance;
     }
 }
 

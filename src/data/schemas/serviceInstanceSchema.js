@@ -16,9 +16,8 @@ const ServiceInstanceSchema = new Schema({
         required: true,
         maxLength: 16
     },
-    serviceId: {
-        type: String,
-        maxLength: 128
+    details: {
+        type: Object
     }
 });
 
