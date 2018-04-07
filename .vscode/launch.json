@@ -12,7 +12,7 @@
             "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/babel-node",
             "program": "${workspaceRoot}/src/index.js",
             "env": {
-                "PORT": "3000",
+                "PORT": "8080",
                 "NODE_ENV": "development"
             },
             "runtimeArgs": [

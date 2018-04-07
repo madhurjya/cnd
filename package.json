@@ -19,8 +19,8 @@
     "cloud",
     "docker"
   ],
-  "author": "Subhaijt Das<subhajit@live.com>",
-  "license": "Apache License v2.0",
+  "author": "Subhajit Das<subhajit@live.com>",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/subhajitdas/cnd/issues"
   },
@@ -40,6 +40,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "1.18.2",
+    "cors": "2.8.4",
     "dependency-injection": "github:subhajitdas/dependency-injection",
     "express": "4.16.2",
     "mongoose": "5.0.9",
